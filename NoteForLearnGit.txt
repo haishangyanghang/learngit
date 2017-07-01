@@ -1,4 +1,4 @@
-----------------------Git 学习笔记--------------------------
+﻿----------------------Git 学习笔记--------------------------
 
 1.Git install for Windows
    a.download from https://git-for-windows.github.io 按照默认选项安装即可；
@@ -129,6 +129,15 @@
 			b. 在dev分支上工作完成，可将其合并到master分支，最简单的方法就是直接把master指向dev的提交，完成合并；
 			c. 合并完成后，删除dev分支；
 			
+
+  具体实现：
+          a. git checkout -b dev--->创建dev分支，并从主分支切换到dev分支，git checkout命令加上 -b 参数表示创建并切换，相
+             当与以下两条命令：git branch dev;  git checkout dev;
+          b. git branch--->查看当前分支，会列出所有分支，并在当前分支前面添加 * 号，之后可以肆无忌惮的在dev分支进行提交；
+          c. git checkout master--->dev分支工作完成后，切换回master分支,查看刚才提交的文件，发现并没有发生改变，因为当前处于master分支,但提交的文件在dev分支;
+          d. git mergr dev--->将dev分支合并到当前分支，即master分支，再查看所提交文件的内容，就可以看到，和dev分支的最新提交是完全一样的；
+          e. git branch -d dev--->删除dev分支（git branch查看后发现分支的确消失）；   
+             
 
 
 
