@@ -139,7 +139,7 @@
           e. git branch -d dev--->删除dev分支（git branch查看后发现分支的确消失）；   
 
 
-10. 解决冲突 and 实现
+10. 解决冲突 & 实现
                
 
 
