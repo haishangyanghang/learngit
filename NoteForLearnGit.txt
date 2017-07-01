@@ -139,7 +139,33 @@
           e. git branch -d dev--->删除dev分支（git branch查看后发现分支的确消失）；   
 
 
-10. 解决冲突 & 实现
+10. 解决冲突
+    合并分支往往也不是一帆风顺的;
+
+   a. git checkout -b fd--->创建新的分支 fd ;修改NoteForLearnGit.txt中 10. 解决冲突 & 实现
+   b. 在 fd 分支上add 并提交；
+   c. git checkout master--->切换回master分支；
+   d. 修改NoteForLearnGit.txt中 10. 解决冲突 and 实现，然后 add 并提交；
+   e. git merge fd--->将 fd 分支合并到当前（master）分支，出现冲突；
+     ---------------------------------------------------------------------------
+     - Auto-merging NoteForLearnGit.txt
+     - CONFLICT (content): Merge conflict in NoteForLearnGit.txt
+     - Automatic merge failed; fix conflicts and then commit the result.
+     ---------------------------------------------------------------------------
+   查看当前提交文件的内容：
+    ----------------------------------------------------------------------------
+    -	<<<<<<< HEAD
+    -	10. 解决冲突 and 实现
+    -	=======
+    -	10. 解决冲突 & 实现
+    -	>>>>>>> fd
+    ----------------------------------------------------------------------------
+
+   f. 在master 分支下修改NoteForLearnGit.txt中 10. 解决冲突 and 实现为 中 10. 解决冲突 & 实现， add 并提交；
+   g. git log --graph--->查看分支合并的情况；
+   h. git branch -d fd--->删除 fd 分支；
+
+  
                
 
 
