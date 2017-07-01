@@ -137,7 +137,10 @@
           c. git checkout master--->dev分支工作完成后，切换回master分支,查看刚才提交的文件，发现并没有发生改变，因为当前处于master分支,但提交的文件在dev分支;
           d. git mergr dev--->将dev分支合并到当前分支，即master分支，再查看所提交文件的内容，就可以看到，和dev分支的最新提交是完全一样的；
           e. git branch -d dev--->删除dev分支（git branch查看后发现分支的确消失）；   
-             
+
+
+10. 解决冲突 & 实现
+               
 
 
 
