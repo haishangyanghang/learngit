@@ -211,14 +211,52 @@
 		4.没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
 		
 		如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
-               
+		
+		
+		
+		
+		
+11. 标签管理
+    a. git checkout master--->切换到要打标签的分支上（git branch查看当前标签）;
+    b. git tag <name>--->打标签；
+    c. git tag--->查看所有标签；
+	
+	默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？
+	a. git log --->查看历史提交记录，找到需要打标签的commit id ,打标签；
+	b. git tag <release number> <commit id>--->对commit id进行打标签； 
+    c. git show <tagname>--->可用来查看标签信息；
 
+       git tag -a v0.1 -m "version 0.1 released" 3628166---->可以创建带有说明的标签，用-a指定标签名，-m指定说明文字;
+       git tag -s v0.2 -m "signed version 0.2 released" fec145a---->可以通过-s用私钥签名一个标签;
+	                                                                签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错
 
+    管理标签
+	--->git tag -d <version number>---->标签打错，可删除（创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除）；
+	    git push origin <tagname>--->推送某个标签到远程;
+        git push origin --tags--->一次性推送全部尚未推送到远程的本地标签;
+      
+	  如果标签推送到了远程：
+	  --->a. git tag -d <version number>--->先从本地删除;
+	      b. git push origin :refs/tags/<version number>--->从远程删除;
 
+		  
+		  
+		  
+		  
+12.使用GitHub
+   Fork别人的库后，自己拥有Fork后库的读写权限；
+   可以推送pull request给官方仓库来贡献代码；
+   
+   忽略特殊文件
+   --->需要建立一个.gitignore文件，将忽略规则填写在其中；
+      有些时候，你想添加一个文件到Git，但发现添加不了，原因是这个文件被.gitignore忽略了(git add App.class)---->可以用-f强制添加到Git(git add -f App.class) ;
+	  git check-ignore -v App.class---->可能.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查;
 
-
-
-
+	  
+	  
+  配置别名
+  --->git config --global alias.st status---->以后st就表示status;
+      git config --global alias.last 'log -1'---->配置一个git last，让其显示最后一次提交信息;
 
 
 
